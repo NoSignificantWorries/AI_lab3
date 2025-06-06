@@ -1,3 +1,6 @@
 .qodo/
 .vscode/
 data/
+*.pt
+*.pth
+runs/
