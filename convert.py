@@ -41,7 +41,8 @@ def main(root_dir: str, base_csv: str, base_dir: str, save_dir: str) -> None:
     df["b_height"] = (df["ymax"] - df["ymin"]) * df["dh"]
     df = df.drop(["width", "height", "xmin", "xmax", "ymin", "ymax"], axis=1)
     
-    train_df, val_df = train_test_split(df, test_size=0.2, random_state=42, stratify=df["type"])
+    # train_df, val_df = train_test_split(df, test_size=0.2, random_state=42, stratify=df["type"])
+    train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
     df = {"train": train_df, "val": val_df}
     
     for group in df.keys():
@@ -49,4 +50,5 @@ def main(root_dir: str, base_csv: str, base_dir: str, save_dir: str) -> None:
     
 
 if __name__ == "__main__":
-    main("data", "new_annotations.csv", "data/crops", "data/dataset")
+    # main("data", "new_annotations.csv", "data/crops", "data/dataset")
+    main("data", "many.csv", "data/many", "data/many_dataset")
